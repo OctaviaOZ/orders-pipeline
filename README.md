@@ -1,4 +1,4 @@
-# orders-pipeline (CI/CD Day 1 starter project)
+# orders-pipeline (CI/CD Day 1 starter project - la)
 
 A tiny data pipeline: `pipeline/transform.py` cleans raw orders and computes revenue per store; `pipeline/report.py` formats a report
 (it imports the `requests` library).
