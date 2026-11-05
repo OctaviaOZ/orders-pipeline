@@ -1,0 +1,28 @@
+#FILE: .github/workflows/ci.yml     
+
+#The same caller, now run once per Python version.
+
+#   NEW:      strategy.matrix on the "checks" job, and the input now comes from the matrix.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    strategy:                  # NEW: a "matrix": run this job once for every entry below
+      fail-fast: false         # false: let every entry finish, so we see ALL the failures
+      matrix:
+        python-version: ["3.11", "3.12"]    # ALWAYS quote versions (unquoted 3.10 would be read as 3.1)
+    uses: ./.github/workflows/checks.yml
+    with:
+      python-version: ${{ matrix.python-version }}    # each run passes ITS version to the called workflow
+    secrets:
+      DEMO_TOKEN: ${{ secrets.DEMO_TOKEN }}           # kept from the previous version
