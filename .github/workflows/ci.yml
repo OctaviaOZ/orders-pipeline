@@ -1,6 +1,6 @@
 
 # A CALLER workflow: it contains no steps of its own. It calls checks.yml.
-name: CI
+name: CI v1
 
 on:
   push:
