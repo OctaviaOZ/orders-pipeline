@@ -3,10 +3,11 @@
 name: CI v1
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_call: 
+  #push:
+  #  branches: [main]
+  #pull_request:
+  #  branches: [main]
 
 permissions:
   contents: read               # the called workflow can keep or reduce this, never add to it
