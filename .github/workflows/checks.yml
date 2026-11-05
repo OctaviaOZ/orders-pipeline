@@ -10,11 +10,15 @@ on:
         required: false
         type: string
         default: "3.12"        # used when the caller passes nothing
+    secrets:
+      DEMO_TOKEN:
+        description: "A fake token, only to show how a secret is passed"
+        required: false 
 
 jobs:
   test:
     runs-on: ubuntu-24.04
-    environment: production
+    #environment: production
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
